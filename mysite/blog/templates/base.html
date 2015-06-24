@@ -1,0 +1,30 @@
+<html>
+{% load staticfiles %}
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<head>
+       <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
+</head>
+<body>
+	<div class="container">
+      	<div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Post</a></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+            <li role="presentation"><a href="#">Search</a></li>
+          </ul>
+        </nav>
+        <h1 class="text-muted">
+	{% block title %}Welcome to my blog{% endblock %}
+	</h1>
+      </div>    
+        {% block content %}
+
+        {% endblock %}
+	</div>
+    </body>
+</html>

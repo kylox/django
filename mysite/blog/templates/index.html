@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Welcome to my blog{% endblock %}
+
+{% block content %}
+<div class="row">
+<div class="col-sm-8 blog-main">
+   <h2>Posts</h2>
+    {% if posts %}
+        <ul class="nav">
+        {% for post in posts %}
+	<div class="blog-post center">
+            <li>
+		<h2 class="blog-post-title">
+	    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+		</h4>
+		<p class="blog-post-meta">{{post.posted}}</p> 
+		<div class="tweet-button">
+  		<a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-count="horizontal" data-via="getbootstrap" data-url="http://blog.getbootstrap.com/2015/06/15/bootstrap-3-3-5-released/" data-text="Bootstrap 3.3.5 released:">Tweet</a>
+		</div>
+	    </li>
+		</div>
+	{% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no posts.</p>
+    {% endif %}
+</div>
+<div class="col-sm-offset-1 col-sm-3 blog-sidebar sidebar-module">
+    <h2>Categories</h2>
+	{% if categories %}
+        <ul class = "list-unstyled">
+        {% for category in categories %}
+            <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no posts.</p>
+    {% endif %}
+</div>
+</div>
+{% endblock %}
